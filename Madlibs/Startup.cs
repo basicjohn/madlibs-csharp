@@ -23,6 +23,7 @@ namespace Madlibs
     }
     public void Configure(IApplicationBuilder app)
     {
+      app.UseStaticFiles();
       app.UseRouting();
       app.UseEndpoints(routes =>
       {
