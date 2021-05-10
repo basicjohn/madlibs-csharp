@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace FriendLetter.Controllers
+namespace Madlibs.Controllers
 {
   public class HomeController : Controller
   {
@@ -8,6 +8,12 @@ namespace FriendLetter.Controllers
     public string Hello() { return "Hello friend!"; }
 
     public string Goodbye() { return "Goodbye friend."; }
+
+    [Route("/")]
+    public ActionResult MadlibForm()
+    {
+      return View();
+    }
 
   }
 }
