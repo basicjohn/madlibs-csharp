@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Madlibs.Models;
 
 namespace Madlibs.Controllers
 {
@@ -10,9 +11,21 @@ namespace Madlibs.Controllers
     public string Goodbye() { return "Goodbye friend."; }
 
     [Route("/")]
-    public ActionResult MadlibForm()
+    public ActionResult MadlibForm() { return View(); }
+
+    [Route("/display")]
+    public ActionResult MadlibDisplay(string noun, string pluralNoun, string presentTenseVerb, string anotherPresentTenseVerb, string partOfBodyPlural, string adjective, string anotherPluralNoun, string anotherAdjective)
     {
-      return View();
+      MadlibVariable madlibOutput = new MadlibVariable();
+      madlibOutput.Noun = noun;
+      madlibOutput.PluralNoun = pluralNoun;
+      madlibOutput.PresentTenseVerb = presentTenseVerb;
+      madlibOutput.AnotherPresentTenseVerb = anotherPresentTenseVerb;
+      madlibOutput.PartOfBodyPlural = partOfBodyPlural;
+      madlibOutput.Adjective = adjective;
+      madlibOutput.AnotherPluralNoun = anotherPluralNoun;
+      madlibOutput.AnotherAdjective = anotherAdjective;
+      return View(madlibOutput);
     }
 
   }
